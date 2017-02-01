@@ -54,14 +54,14 @@ encrypt Premises WiFi configuration (typically entered by the user)
 using the appKey (depicted in blue) 
 and pass just the encrypted PremWiFi (and not appKey) to the server. This 
 approach is appropriate if the server in the cloud does not manage the
-premistes WiFi network. 
+premises WiFi network. 
 
 A second approach is for the mobile app to pass
 appKey to the provisioning server along with whatever additional data
 may be needed for the provisioning server to determine the appropriate
 PremisesWiFi configuration. The provisioning server in thhis case uses
 the appKey to encrypt that configuration. In this second approach, the
-mobile app is able to configure those settings without knowing the 
-PremisesWiFi password. In this release, this latter approach is used. It is 
+mobile app is able to configure those settings on the Omega without knowing the 
+premises WiFi credentials. In this release, this latter approach is used. It is 
 an approach more suitable for enterprise deployments.
 
