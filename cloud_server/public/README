@@ -1,0 +1,5 @@
+
+This directory holds the client web code to drive the Omega setup process 
+with a mobile device.  The client_code.js file depends upon jquery 
+and crypto libraries, so those libraries also need to be included. 
+

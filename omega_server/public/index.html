@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!--  The code below can be used to prevent web socket requests from being
+          established to other servers (theoretically... haven't tested this 
+          yet)
+
+    <meta http-equiv="Content-Security-Policy" content="connect-sc 'self'"> 
+    --> 
+    <title>react-kickstart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+    function haltDevice () {
+      alert("Posting request to halt Omega");
+      var myForm = document.createElement("form");
+      myForm.method="post" ;
+      myForm.action = "http://192.168.3.1:3000/haltDevice" ;
+      myForm.submit() ;
+    }
+    </script>
+  </head>
+  <body>
+    <p>
+    This is a placeholder for an embedded web app that the Omega's node
+    server could expose to a mobile client. The only function supported by this 
+    placeholder is a button for shutting down the Omega device.
+    </p>
+    <button onclick="haltDevice()">Shut down Omega</button>
+  </body>
+</html>

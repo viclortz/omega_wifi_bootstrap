@@ -1,0 +1,16 @@
+{
+  "name": "pairdev",
+  "version": "1.0.0",
+  "description": "app to set up a headless IoT device",
+  "main": "cloud_server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "crypto-browserify": "^3.11.0",
+    "express": "^4.14.1"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "omega_wifi_bootstrap",
+  "version": "0.0.0",
+  "description": "Node server to help bootstrap WiFi settings of an Onion Omega",
+  "main": "server/omega.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viclortz/omega_wifi_bootstrap.git"
+  },
+  "keywords": [
+    "WiFi",
+    "IOT",
+    "setup"
+  ],
+  "author": "Vic Lortz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/viclortz/omega_wifi_bootstrap/issues"
+  },
+  "homepage": "https://github.com/viclortz/omega_wifi_bootstrap#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "mocha": "^3.2.0"
+  }
+}
