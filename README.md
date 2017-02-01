@@ -59,9 +59,14 @@ premises WiFi network.
 A second approach is for the mobile app to pass
 appKey to the provisioning server along with whatever additional data
 may be needed for the provisioning server to determine the appropriate
-PremisesWiFi configuration. The provisioning server in thhis case uses
+PremisesWiFi configuration. The provisioning server in this case uses
 the appKey to encrypt that configuration. In this second approach, the
 mobile app is able to configure those settings on the Omega without knowing the 
 premises WiFi credentials. In this release, this latter approach is used. It is 
 an approach more suitable for enterprise deployments.
+
+For the sake of simplicity in the initial release, the crypto on the mobile
+app side is performed in Javascript using the crypto module. A better 
+approach would be to use native code to generate keys or perform other
+crypto operations. 
 
