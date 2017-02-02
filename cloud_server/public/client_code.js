@@ -115,7 +115,11 @@ function configureDevice(ssid,psk,url,configURL,configInfo) {
             // alert("connected, pushing " + JSON.stringify(window.devInfo) +  " to device at " + window.devUrl);
             PushToDevice(configURL, configInfo); // give configuration to device
         } 
-    } else { // just assume the device is reachable
+    } else { 
+        // just assume the device is reachable... in case we are running on
+        // an iPhone or otherwise cannot request the phone to automatically
+        // switch networks by calling out to a native wrapper object.
+        // Note that support for iPhone devices is not yet completed.
         PushToDevice(configURL, configInfo); // give configuration to device
     }
 }
