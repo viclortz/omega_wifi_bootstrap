@@ -16,7 +16,8 @@ on the Internet.
 
 ![Solution](./images/BadNews.png)
 
-So, what was this problem exactly? According to welivesecurity.com:
+Later the same month, there was another major round of attacks. According
+to welivesecurity.com:
 
 "The 10/21 attacks were made possible by the large number of unsecured
 internet-connected digital devices, such as home routers and surveillance
