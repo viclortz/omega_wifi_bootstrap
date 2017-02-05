@@ -16,6 +16,25 @@ on the Internet.
 
 ![Solution](./images/BadNews.png)
 
+So, what was this problem exactly? According to welivesecurity.com:
+
+"The 10/21 attacks were made possible by the large number of unsecured
+internet-connected digital devices, such as home routers and surveillance
+cameras ... The DDoS-enabling infections were made possible by the use of
+default passwords on these devices. Because the default passwords for most
+devices are widely known, anyone placing such a device on the internet
+without first changing the default password is, in effect,
+enabling attacks of the type witnessed on October 21, even if they
+are doing so unwittingly. Recent ESET research suggests at least
+15% of home routers are unsecured (and the total number of home
+routers on the internet is probably on the order of several hundred million)."
+http://www.welivesecurity.com/2016/10/24/10-things-know-october-21-iot-ddos-attacks/
+
+So, why were all these devices shipped with well-known default passwords? There
+are many reasons, but the most significant factors are that more secure 
+alternatives are difficult to deploy with headless devices and are
+too expensive and/or too difficult for most consumers to use.
+
 The industry is moving forward to fill this gap, and many
 solutions have been proposed and are being deployed. This project represents
 one such approach. My purpose in releasing this code is to advocate for
