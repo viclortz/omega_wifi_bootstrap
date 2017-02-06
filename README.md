@@ -16,8 +16,10 @@ on the Internet.
 
 ![Solution](./images/BadNews.png)
 
-Later the same month, there was another major round of attacks. According
-to welivesecurity.com:
+Early in 2016, hackers used IoT devices to launch DDOS attacks
+against targeted web services. This proved that many IoT devices were
+vulnerable and could be easily weaponized.  In late October, there was
+another major round of attacks.  According to welivesecurity.com:
 
 "The 10/21 attacks were made possible by the large number of unsecured
 internet-connected digital devices, such as home routers and surveillance
@@ -32,15 +34,14 @@ routers on the internet is probably on the order of several hundred million)."
 http://www.welivesecurity.com/2016/10/24/10-things-know-october-21-iot-ddos-attacks/
 
 So, why were all these devices shipped with well-known default passwords? There
-are many reasons, but the most significant factors are that more secure 
-alternatives are difficult to deploy with headless devices and are
-too expensive and/or too difficult for most consumers to use.
-
-The industry is moving forward to fill this gap, and many
-solutions have been proposed and are being deployed. This project represents
-one such approach. My purpose in releasing this code is to advocate for
-solutions having similar characteristics, considering this example as a
-kind of software pattern. 
+are many reasons. More secure alternatives face significant deployment obstacles
+on headless devices and can be too expensive and/or too difficult for many
+consumers to use. However, the success of recent attacks represents a crisis
+of sorts to the emerging IoT community.  The industry is moving forward to
+fill this gap, and many solutions have been proposed and are being deployed.
+This project represents one such approach. My purpose in releasing this code
+is to advocate for solutions having similar characteristics, considering this
+example as a kind of software pattern. 
 
 Although the overall approach is generic, this particular project uses
 the impressive Onion Omega (and Omega2) device. The Omega
@@ -65,14 +66,45 @@ Vic Lortz
 Solution Components
 =================================
 
+The figure below depicts information flow between a headless IoT device, a
+mobile app, and a provisioning server in the cloud. The figure should be
+read top to bottom, with earlier messages at the top. The colored keys 
+represent different cryptographic keys. The IoT Device's manufacturer 
+pre-provisions shared keys (the red keys in the figure) between the IoT device
+and the cloud during device manufacturing time. The red keys are used to
+protect configuration data sent from the provisioning server to the IoT
+device. The configuration data needs to be both encrypted and authenticated.
+
+The top arrow represents the mobile app scanning a URL from a QR-code or
+from NFC (near-field communication). This URL includes the IoT device's
+unique identifier (e.g., serial number) and the name of the provisioning
+server. The QR-code would typically be included with the product along
+with the warranty card or other literature. Alternatively, it could
+be printed on the device. It is important to note that the security of
+this setup procedure does not depend upon the URL being kept secret.
+
+When the mobile app loads the web page pointed to by the setup URL, it 
+runs some Javascript on that page that sends a POST message and receives
+a response represented by the second and third messages. The response message
+provides the mobile app with the Omega's WiFi AP configuration (labeled
+"Dev WiFI" in the figure). The mobile app creates a corresponding WiFi
+profile and switches the phone to that network so it can communicate
+directly with the IoT Device. Once it makes that connection, it sends the
+last message passing the configuration data to the IoT Device. The configuration
+data is encrypted using the "red" key and contains an embedded payload of
+the Premises WiFi SSID and PSK encrypted with the "blue" key. With this
+information, the IoT Device is able to configure its WiFi client to connect
+to the Premises WiFi network and thereby become connected to the Internet.
+
+
 ![Solution](./images/SolutionFlow.png)
 
 
-Note that the message from the mobile phone to the provisioning server 
+Note that the first message from the mobile app to the provisioning server 
 may take one of two approaches. The first approach is for the mobile app to
 encrypt Premises WiFi configuration (typically entered by the user)
 using the appKey (depicted in blue) 
-and pass just the encrypted PremWiFi (and not appKey) to the server. This 
+and pass just the encrypted PremWiFi (without appKey) to the server. This 
 approach is appropriate if the server in the cloud does not manage the
 Premises WiFi network. 
 
