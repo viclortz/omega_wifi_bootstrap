@@ -87,14 +87,15 @@ When the mobile app loads the web page pointed to by the setup URL, it
 runs some Javascript on that page that sends a POST message and receives
 a response represented by the second and third messages. The response message
 provides the mobile app with the Omega's WiFi AP configuration (labeled
-"Dev WiFI" in the figure). The mobile app creates a corresponding WiFi
+"Dev WiFi" in the figure). The mobile app creates a corresponding WiFi
 profile and switches the phone to that network so it can communicate
 directly with the IoT Device. Once it makes that connection, it sends the
-last message passing the configuration data to the IoT Device. The configuration
-data is encrypted using the "red" key and contains an embedded payload of
-the Premises WiFi SSID and PSK encrypted with the "blue" key. With this
-information, the IoT Device is able to configure its WiFi client to connect
-to the Premises WiFi network and thereby become connected to the Internet.
+last message, passing the configuration data to the IoT Device. The
+configuration data is encrypted using the "red" key and contains an
+embedded payload of the Premises WiFi SSID and PSK encrypted with the
+"blue" key. With this information, the IoT Device is able to configure
+its WiFi client to connect to the Premises WiFi network and thereby
+become connected to the Internet.
 
 
 ![Solution](./images/SolutionFlow.png)
@@ -113,12 +114,13 @@ appKey to the provisioning server along with whatever additional data
 may be needed for the provisioning server to determine the appropriate
 PremisesWiFi configuration. The provisioning server in this case uses
 the appKey to encrypt that configuration. In this second approach, the
-mobile app is able to configure those settings on the Omega without knowing the 
-Premises WiFi credentials. In this release, this latter approach is used. It is 
-an approach more suitable for enterprise deployments.
+mobile app is able to configure the settings on the IoT Device without
+knowing the Premises WiFi credentials. In this release, this latter
+approach is used. It is 
+an approach mainly suitable for enterprise deployments.
 
 For the sake of simplicity in the initial release, the crypto on the mobile
-app side is performed in Javascript using the crypto module. A better 
+app side is performed in Javascript using the standard crypto module. A better 
 approach would be to use native code to generate keys or perform other
 crypto operations. 
 
@@ -144,7 +146,7 @@ other approach as well.
 In similar manner, the way this project currently manages credentials and
 settings in the cloud is very simplistic. Those aspects of a solution would
 need to be replaced entirely in any realistic deployment. For example, public
-keys should be used rather than symmetric keys, a secure backend database should
+keys could be used rather than symmetric keys, a secure backend database should
 be used to store wireless configurations and device settings in the cloud, 
 etc. In the interest of keeping this project as simple as possible initially, 
 these aspects of a "real solution" are currently omitted. My next step in 
